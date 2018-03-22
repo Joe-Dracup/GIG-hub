@@ -19,4 +19,4 @@ namespace GigHub.Migrations
             Sql("DELETE FROM Genres WHERE Id IN (1,2,3,4,5,6)");
         }
     }
-}
+} 
