@@ -25,8 +25,6 @@ namespace GigHub.Controllers
         {
             var userId = User.Identity.GetUserId();
 
-            //var exists = _context.Attendances.Any(a => a.AttendeeId == userId && a.GigId == dto.GigId);
-
             var exists = _context.Followers.Any(u => u.FollowerId == userId && u.FolloweeId == dto.FolloweeId);
 
             if (exists)
