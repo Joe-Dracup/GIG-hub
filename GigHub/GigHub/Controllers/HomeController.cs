@@ -1,10 +1,11 @@
 ﻿using GigHub.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.Mvc;
 using System.Data.Entity;
+using System.Web.Http;
+using Microsoft.AspNet.Identity;
+using GigHub.Dtos;
+using System.Web.Mvc;
 
 namespace GigHub.Controllers
 {
@@ -24,18 +25,16 @@ namespace GigHub.Controllers
             return View(upComingGigs);
         }
 
-        public ActionResult About()
+        public ActionResult Artists()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            var availableArtists = _context.Users
+                .Where(u => u.IsArtist);
+            return View(availableArtists);
         }
 
-        public ActionResult Contact()
+        private IHttpActionResult BadRequest(string v)
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            throw new NotImplementedException();
         }
     }
 }

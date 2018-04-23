@@ -82,6 +82,9 @@ namespace GigHub.Models
         [Required]
         [StringLength(100)]
         public string Name { get; set; }
+
+        [Display(Name="Are you an artist?")]
+        public bool IsArtist { get; set; }
     }
 
     public class ResetPasswordViewModel

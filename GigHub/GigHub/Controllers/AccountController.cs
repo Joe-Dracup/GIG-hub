@@ -153,7 +153,9 @@ namespace GigHub.Controllers
             {
                 var user = new ApplicationUser { UserName = model.Email,
                     Email = model.Email,
-                    Name = model.Name };
+                    Name = model.Name,
+                    IsArtist = model.IsArtist
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
